@@ -4,11 +4,8 @@ FROM richarvey/nginx-php-fpm:2.0.0
 # Server par app ka folder banayein
 WORKDIR /var/www/html
 
-# Zaroori packages install karein (composer ke liye)
-RUN apt-get update && apt-get install -y \
-    git \
-    unzip \
-    && rm -rf /var/lib/apt/lists/*
+# Zaroori packages install karein (apk ke zariye)
+RUN apk update && apk add --no-cache git unzip
 
 # Composer install karein
 COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
@@ -37,4 +34,4 @@ EXPOSE 80
 
 # App ko start karne ka command
 CMD ["/usr/bin/entrypoint.sh"]
-
+```

@@ -12,8 +12,7 @@ RUN chown -R www-data:www-data /var/www/html/storage /var/www/html/bootstrap/cac
     chmod -R 775 /var/www/html/storage /var/www/html/bootstrap/cache
 
 # Nginx config ko copy karein
-COPY .docker/nginx.conf /etc/nginx/sites-available/default.conf
-
+COPY .docker/nginx.conf /etc/nginx/sites-available/nginx.conf
 # Yeh port Render ko batata hai ke app kahan chal rahi hai
 EXPOSE 80
 

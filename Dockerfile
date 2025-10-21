@@ -8,11 +8,12 @@ WORKDIR /var/www/html
 COPY . /var/www/html
 
 # File permissions set karein (Laravel ke liye zaroori)
-RUN chown -R www-data:www-data /var/www/html/storage /var/www/html/bootstrap/cache && \
+RUN chown -R www-data:www-data /var/w ww/html/storage /var/www/html/bootstrap/cache && \
     chmod -R 775 /var/www/html/storage /var/www/html/bootstrap/cache
 
 # Nginx config ko copy karein
 COPY .docker/nginx.conf /etc/nginx/sites-available/nginx.conf
+
 # Yeh port Render ko batata hai ke app kahan chal rahi hai
 EXPOSE 80
 
